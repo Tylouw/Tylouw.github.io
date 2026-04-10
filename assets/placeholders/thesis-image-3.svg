@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
-  <rect width="1280" height="720" rx="32" fill="#111826"/>
-  <rect x="40" y="40" width="1200" height="640" rx="28" fill="#182338" stroke="#2C3B57"/>
-  <circle cx="640" cy="330" r="84" fill="#24324B" stroke="#6EA8FE" stroke-width="4"/>
-  <path d="M620 286L700 330L620 374V286Z" fill="#9FC0FF"/>
-  <text x="640" y="500" text-anchor="middle" fill="#E7EDF7" font-size="44" font-family="Arial, Helvetica, sans-serif" font-weight="700">Taskboard</text>
-  <text x="640" y="548" text-anchor="middle" fill="#AAB6C8" font-size="24" font-family="Arial, Helvetica, sans-serif">Replace with your real media</text>
-</svg>

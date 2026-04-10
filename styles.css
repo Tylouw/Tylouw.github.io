@@ -1,3 +1,4 @@
+/* Global color tokens, spacing values, and reusable design settings */
 :root {
   --bg: #0d1117;
   --panel: #111826;
@@ -11,14 +12,17 @@
   --radius: 20px;
 }
 
+/* Makes sizing calculations easier by including border and padding in width/height */
 * {
   box-sizing: border-box;
 }
 
+/* Enables smooth scrolling when clicking anchor links in the navigation */
 html {
   scroll-behavior: smooth;
 }
 
+/* Base page styling: font, colors, and overall background */
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -29,26 +33,50 @@ body {
   line-height: 1.6;
 }
 
+/* Adds a subtle texture overlay across the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6, 10, 16, 0.18), rgba(6, 10, 16, 0)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+  opacity: 0.28;
+  z-index: 0;
+}
+
+/* Makes images responsive and removes inline-image spacing issues */
 img {
   display: block;
   width: 100%;
   height: auto;
 }
 
+/* Links inherit text color unless a more specific rule changes it */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Buttons use the same typography as the rest of the page */
 button {
   font: inherit;
 }
 
+/* Shared width wrapper that creates the left/right page margins */
 .container {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1180px, calc(100% - 4rem));
   margin: 0 auto;
 }
 
+/* Sticky top header that stays visible while scrolling */
 .site-header {
   position: sticky;
   top: 0;
@@ -58,6 +86,7 @@ button {
   border-bottom: 1px solid var(--line);
 }
 
+/* Positions logo and navigation on one horizontal row */
 .nav-wrap {
   display: flex;
   align-items: center;
@@ -65,6 +94,7 @@ button {
   min-height: 72px;
 }
 
+/* Small boxed TW logo in the top-left corner */
 .brand {
   width: 44px;
   height: 44px;
@@ -76,24 +106,112 @@ button {
   font-weight: 800;
 }
 
+/* Row of navigation links and social icons */
 .nav {
   display: flex;
   gap: 1.25rem;
   color: var(--muted);
 }
 
+/* Default link appearance inside the header */
+.nav a {
+  color: var(--muted);
+  transition: color 160ms ease, transform 160ms ease;
+}
+
 .nav a:hover,
 .nav a:focus-visible {
-  color: var(--text);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
+/* Full-screen landing section with the background video */
 .hero {
-  padding: 7rem 0 4rem;
+  position: relative;
+  min-height: calc(100svh - 72px);
+  display: flex;
+  align-items: stretch;
+  overflow: clip;
+  background: #070b12;
 }
 
+/* Bottom fade so the hero blends smoothly into the next section */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(180deg, rgba(7, 11, 18, 0) 0%, rgba(7, 11, 18, 0.94) 100%);
+  z-index: 2;
+}
+
+/* Video that fills the hero background */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  /* filter: saturate(0.9) contrast(1.05) brightness(0.55); */
+  transform: scale(1.03);
+}
+
+/* Dark overlays that keep the headline readable on top of the video */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 32%, rgba(110, 168, 254, 0.18), transparent 28%),
+    linear-gradient(90deg, rgba(6, 10, 16, 0.88) 0%, rgba(6, 10, 16, 0.58) 45%, rgba(6, 10, 16, 0.76) 100%),
+    linear-gradient(180deg, rgba(6, 10, 16, 0.35) 0%, rgba(6, 10, 16, 0.12) 35%, rgba(6, 10, 16, 0.88) 100%);
+  z-index: 1;
+}
+
+/* Two-column hero layout: text on the left, highlight chips on the right */
+.hero-grid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(240px, 0.42fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  padding-top: clamp(5.25rem, 8vh, 6.75rem);
+  padding-bottom: clamp(5.5rem, 10vh, 7.25rem);
+}
+
+/* Opening animation for the hero content when the page loads */
+.hero-content,
+.hero-aside,
+.hero-scroll {
+  animation: heroFadeUp 800ms ease forwards;
+  opacity: 0;
+}
+
+.hero-content { animation-delay: 90ms; }
+.hero-aside { animation-delay: 220ms; }
+.hero-scroll { animation-delay: 420ms; }
+
+/* Prevents the hero text block from getting too wide */
+.hero-content {
+  max-width: 52rem;
+}
+
+/* Short supporting line above the main headline */
+.hero-lead {
+  margin: 0 0 1rem;
+  max-width: 32ch;
+  color: rgba(231, 237, 247, 0.9);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Small uppercase section labels used throughout the site */
 .eyebrow,
 .section-kicker {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0 0;
   color: var(--accent-2);
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -101,29 +219,105 @@ button {
   font-size: 0.78rem;
 }
 
+/* Main landing-page headline */
 .hero h1 {
-  margin: 0;
-  max-width: 12ch;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  margin: 0 0 0 20px;
+  max-width: 9.6ch;
+  font-size: clamp(3.1rem, 6.6vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
 }
 
+/* Paragraph below the main hero headline */
 .hero-copy {
-  margin: 1.35rem 0 0;
-  max-width: 720px;
-  color: var(--muted);
-  font-size: 1.08rem;
+  margin: 15px 0 0 20px;
+  max-width: 36rem;
+  color: rgba(231, 237, 247, 0.82);
+  font-size: 1rem;
 }
 
-.hero-actions,
+/* Right-side glass panel with highlighted project themes */
+.hero-aside {
+  margin: 0 20px 0 0;
+  align-self: center;
+  justify-self: end;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 260px;
+  padding: 1.2rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(8, 12, 19, 0.32), rgba(8, 12, 19, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+/* Individual pill items inside the hero highlight panel */
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(231, 237, 247, 0.92);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Shared horizontal layout for hero/contact action buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 0 0 0 20px;
+}
+
+/* Extra spacing above the hero buttons */
+.hero-actions {
+  margin-top: 1.6rem;
+}
+
+/* Button row inside each project card */
 .card-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
-  margin-top: 1.5rem;
+  margin: 0;
+  position: absolute;
+  left: 1.45rem;
+  bottom: 1.45rem;
 }
 
+/* Small scroll indicator at the bottom of the hero */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 3.0rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+}
+
+/* Transparent scroll icon shown at the bottom center of the hero */
+.hero-scroll-icon {
+  width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  animation: heroScrollFloat 1.5s ease-in-out infinite;
+}
+
+/* Base style shared by all buttons */
 .button {
   display: inline-flex;
   align-items: center;
@@ -141,24 +335,42 @@ button {
   transform: translateY(-1px);
 }
 
+/* Bright primary button for the most important action */
 .button-primary {
   background: linear-gradient(135deg, var(--accent), #9fc0ff);
   color: #08111f;
   font-weight: 700;
 }
 
+/* Dark secondary button for supporting actions */
 .button-secondary {
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.12);
 }
 
+/* Shared top/bottom spacing for the main content sections */
 .projects-section,
 .about-section,
 .contact-section {
   padding: 2rem 0 4rem;
 }
 
+/* First section after the hero, visually lifted above the page background */
+.projects-section {
+  position: relative;
+  z-index: 4;
+  margin-top: -2.2rem;
+  padding-top: 4rem;
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+  background:
+    radial-gradient(circle at top left, rgba(110, 168, 254, 0.08), transparent 22%),
+    linear-gradient(180deg, #0b1018 0%, #0d1117 100%);
+  box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Intro block above a section, like title plus short description */
 .section-heading {
   max-width: 760px;
   margin-bottom: 2rem;
@@ -178,14 +390,18 @@ button {
   color: var(--muted);
 }
 
+/* Vertical stack of all project cards */
 .projects-grid {
   display: grid;
   gap: 1.4rem;
 }
 
+/* Individual project tile with text and media */
 .project-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
+  align-items: start;
   gap: 1.5rem;
   padding: 1.45rem;
   border-radius: var(--radius);
@@ -194,17 +410,25 @@ button {
   box-shadow: var(--shadow);
 }
 
+/* Keeps the desktop button row from overlapping the project text */
+.project-head {
+  padding-bottom: 4.75rem;
+}
+
+/* Project title */
 .project-head h3 {
   margin: 0.2rem 0 0.5rem;
   font-size: 1.65rem;
   line-height: 1.15;
 }
 
+/* Project description text */
 .project-head p {
   color: var(--muted);
   margin: 0;
 }
 
+/* Generic pill label used for project type/status */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -216,18 +440,98 @@ button {
   letter-spacing: 0.02em;
 }
 
+/* place tags inline inside the project head, between the paragraph and tech list */
+/* Extra spacing when a tag appears inside a project card */
+.project-head .tag {
+  display: inline-flex;
+  margin: 0.6rem 0 0;
+  padding: 0 0.65rem;
+  font-size: 0.78rem;
+}
+
+/* icon sizing for buttons and nav */
+/* Shared size for icons shown inside buttons */
+.btn-icon,
+.btn-icon-right {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.btn-icon { margin-right: 0.6rem; }
+.btn-icon-right { margin-left: 0.6rem; }
+
+/* Wrapper for the GitHub and LinkedIn icons in the header */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.6rem;
+}
+/* Actual social icon images in the header */
+.icon-link img {
+  width: 26px;
+  height: 26px;
+  display: block;
+  transition: filter 180ms ease, transform 180ms ease, opacity 180ms ease;
+  filter: brightness(0) invert(1); /* render icons white */
+  opacity: 0.95;
+}
+
+/* hover/focus tint for header social icons only */
+.icon-link:hover img,
+.icon-link:focus img,
+.icon-link:focus-visible img {
+  filter: invert(36%) sepia(83%) saturate(4354%) hue-rotate(188deg) brightness(96%) contrast(106%);
+  transform: translateY(-2px);
+}
+
+/* Small icon-size adjustments for narrow screens */
+@media (max-width: 640px) {
+  .btn-icon,
+  .btn-icon-right { width: 20px; height: 20px; }
+  .icon-link img { width: 20px; height: 20px; }
+}
+
+/* Turns icons white inside dark buttons for better contrast */
+.button-secondary .btn-icon,
+.button-secondary .btn-icon-right {
+  filter: brightness(0) invert(1);
+}
+
+/* Slightly larger info icon for the More information button */
+.more-info-btn .btn-icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Icon size inside project-card buttons */
+.card-actions .button .btn-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Icon size inside the hero/contact button rows */
+.hero-actions .button .btn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Color style for "Private project" tags */
 .tag-private {
   background: rgba(143, 211, 199, 0.15);
   color: var(--accent-2);
   border: 1px solid rgba(143, 211, 199, 0.25);
 }
 
+/* Color style for "University project" tags */
 .tag-university {
   background: rgba(110, 168, 254, 0.14);
   color: var(--accent);
   border: 1px solid rgba(110, 168, 254, 0.22);
 }
 
+/* Row of technology badges inside a project card */
 .tech-list {
   display: flex;
   flex-wrap: wrap;
@@ -237,6 +541,7 @@ button {
   list-style: none;
 }
 
+/* Individual technology badge */
 .tech-list li {
   padding: 0.45rem 0.7rem;
   border-radius: 999px;
@@ -246,55 +551,69 @@ button {
   font-size: 0.9rem;
 }
 
+/* Wraps the project preview area and thumbnail row */
 .media-block {
   display: grid;
   gap: 0.85rem;
 }
 
+/* Large preview area for a project video/image */
 .video-placeholder {
   position: relative;
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 10, 16, 0.8);
 }
 
-.video-placeholder img {
+/* Responsive embedded project video; JavaScript fills in the YouTube embed URL */
+.video-placeholder iframe {
   aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  border: 0;
   object-fit: cover;
 }
 
-.play-badge {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(9, 13, 20, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-
+/* Three-column row of smaller project preview images */
 .thumb-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.65rem;
 }
 
+/* Use this when a project should keep square thumbnails in a grid */
+.thumb-row.thumb-row-square img {
+  aspect-ratio: 1 / 1;
+}
+
+/* Use this when a project should show one wide thumbnail */
+.thumb-row.thumb-row-wide {
+  grid-template-columns: 1fr;
+}
+
+.thumb-row.thumb-row-wide img {
+  aspect-ratio: 16 / 9;
+}
+
+/* Styling for each thumbnail image */
 .thumb-row img {
   border-radius: 14px;
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Two-column layout for the About section */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.0fr 1.0fr;
   gap: 1.5rem;
   align-items: start;
 }
 
+/* Shared card look for the About and Contact boxes */
 .about-panel,
 .contact-box {
   border-radius: var(--radius);
@@ -303,24 +622,29 @@ button {
   box-shadow: var(--shadow);
 }
 
+/* Inner spacing of the About box */
 .about-panel {
   padding: 1.35rem;
 }
 
+/* About box heading spacing */
 .about-panel h3 {
   margin-top: 0;
 }
 
+/* Bullet list styling inside the About box */
 .about-panel ul {
   margin: 0;
   padding-left: 1.1rem;
   color: var(--muted);
 }
 
+/* Inner spacing of the Contact box */
 .contact-box {
   padding: 1.6rem;
 }
 
+/* Full-screen dark overlay behind the modal dialog */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -332,10 +656,12 @@ button {
   z-index: 40;
 }
 
+/* Makes the modal visible when JavaScript adds the open class */
 .modal-overlay.open {
   display: flex;
 }
 
+/* Pop-up dialog box shown after clicking More information */
 .modal-card {
   position: relative;
   width: min(720px, 100%);
@@ -346,14 +672,17 @@ button {
   box-shadow: var(--shadow);
 }
 
+/* Modal heading spacing */
 .modal-card h3 {
   margin-top: 0.55rem;
 }
 
+/* Modal paragraph text color */
 .modal-card p {
   color: var(--muted);
 }
 
+/* Round close button in the modal corner */
 .modal-close {
   position: absolute;
   top: 0.8rem;
@@ -369,25 +698,55 @@ button {
   cursor: pointer;
 }
 
+/* Tablet layout changes: stacked hero/project/about layouts and adjusted spacing */
 @media (max-width: 900px) {
   .project-card,
   .about-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding-top: 5.5rem;
+  .project-head {
+    padding-bottom: 0;
   }
-}
 
-@media (max-width: 640px) {
-  .nav {
-    gap: 0.8rem;
-    font-size: 0.95rem;
+  .card-actions {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  .container {
+    width: min(1180px, calc(100% - 3rem));
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5.75rem;
   }
 
   .hero h1 {
-    max-width: 10ch;
+    max-width: 10.5ch;
+    font-size: clamp(2.9rem, 9vw, 4.8rem);
+  }
+
+  .hero-aside {
+    justify-self: start;
+    max-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile layout changes: tighter spacing, smaller headline, simpler hero layout */
+@media (max-width: 640px) {
+  .container {
+    width: min(1180px, calc(100% - 2rem));
+  }
+
+  .nav {
+    gap: 0.8rem;
+    font-size: 0.95rem;
   }
 
   .project-card,
@@ -395,5 +754,74 @@ button {
   .about-panel,
   .modal-card {
     padding: 1rem;
+  }
+
+  .hero-grid {
+    gap: 1.25rem;
+    padding-top: 4.4rem;
+    padding-bottom: 5.25rem;
+  }
+
+  .hero h1 {
+    max-width: 9.5ch;
+    font-size: clamp(2.7rem, 12vw, 4.1rem);
+  }
+
+  .hero-copy,
+  .hero-lead {
+    max-width: 100%;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+  }
+
+  .hero-aside {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .hero-chip {
+    justify-content: flex-start;
+    background: rgba(8, 12, 19, 0.42);
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-scroll {
+    bottom: 0.8rem;
+  }
+
+  .projects-section {
+    margin-top: -1.4rem;
+    padding-top: 3rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+}
+
+/* Fade-and-lift animation used when hero elements appear */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slow floating animation for the scroll icon */
+@keyframes heroScrollFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
   }
 }

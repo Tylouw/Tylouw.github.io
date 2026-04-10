@@ -18,81 +18,116 @@
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a class="icon-link" href="https://github.com/Tylouw" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+          <img src="assets/icons/github.png" alt="GitHub" />
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/tilo-w%C3%B6bber-9a2b59356/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+          <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+        </a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero container">
-      <p class="eyebrow">Robotics • Controls • Integration • Prototyping</p>
-      <h1>Building robots that work outside ideal conditions.</h1>
-      <p class="hero-copy">
-        I am Tilo Wöbber, a robotics engineer finishing my M.Sc. in Robot Systems at SDU.
-        My projects span industrial robot integration, custom robot hardware, motion control,
-        computer vision, and full-stack prototype development.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="#projects">See projects</a>
-        <a class="button button-secondary" href="#contact">Get in touch</a>
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-grid container">
+        <div class="hero-content">
+          <!-- <p class="eyebrow">Robotics • Controls • Integration • Prototyping</p> -->
+          <!-- <p class="hero-lead">Fast cuts. Real hardware. End-to-end ownership.</p> -->
+          <h1>Hi, I'm Tilo! Industrial Robots are my passion</h1>
+          <p class="hero-copy">
+            I am Tilo Wöbber, a robotics engineer finishing my M.Sc. in Robot Systems
+            (Advanced Robotics Technology) at SDU Odense, Denmark. I build across industrial
+            robot integration, custom robot hardware, motion control, perception, and full-stack prototyping.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">See projects</a>
+            <a class="button button-secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <!-- <div class="hero-aside" aria-label="Project highlights">
+          <div class="hero-chip">UR5e integration</div>
+          <div class="hero-chip">Custom 6-DoF arm</div>
+          <div class="hero-chip">ROS and ROS 2</div>
+          <div class="hero-chip">Vision-to-grasp pipelines</div>
+          <div class="hero-chip">Calibration and control</div>
+          <div class="hero-chip">Rapid prototyping</div>
+        </div> -->
       </div>
+      <a class="hero-scroll" href="#projects" aria-label="Scroll to projects">
+        <img class="hero-scroll-icon" src="assets/icons/icons8-scroll-100.png" alt="" aria-hidden="true" />
+      </a>
     </section>
 
     <section id="projects" class="projects-section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker">Selected work</p>
-          <h2>Featured robotics projects</h2>
-          <p>
-            Inspired by strong robotics portfolio advice, each project highlights the problem,
-            my contribution, the technical stack, and visual proof through video and images.
-          </p>
+          <h2>My robotics projects</h2>
         </div>
 
         <div class="projects-grid">
           <article class="project-card">
             <div class="project-head">
-              <span class="tag tag-private">Private project</span>
               <h3>Brobot — Custom 6-DoF Robot Arm</h3>
               <p>
-                Designed and built a fully custom 6-DoF robot arm with 3D-printed mechanics,
-                self-designed electronics, and a custom C++ controller running on ESP32.
+                Designed and built a complete 6-DoF robot arm from scratch.
+                Developed the mechanical structure in CAD, produced parts by
+                3D printing, designed the electronics architecture,
+                and implemented a custom C++ controller on ESP32.
+                Implemented forward/inverse kinematics, coordinated axis motion,
+                Jacobian-based Cartesian jogging, and safety logic.
               </p>
+              <span class="tag tag-private">Private project</span>
               <ul class="tech-list">
                 <li>C++</li>
                 <li>ESP32</li>
-                <li>Inverse kinematics</li>
-                <li>Jacobian control</li>
+                <li>Forward/Inverse Kinematics</li>
+                <li>Stepper Control</li>
+                <li>Jacobian Control</li>
                 <li>CAD</li>
-                <li>3D printing</li>
+                <li>3D Printing</li>
               </ul>
             </div>
 
             <div class="media-block">
               <div class="video-placeholder">
-                <img src="assets/placeholders/brobot-video.svg" alt="Placeholder preview for Brobot video" />
-                <span class="play-badge">Video placeholder</span>
+                <iframe
+                  class="project-video"
+                  data-youtube="https://youtu.be/sra06ZZAsJM"
+                  title="Brobot project video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <div class="thumb-row">
-                <img src="assets/placeholders/brobot-image-1.svg" alt="Placeholder image for Brobot mechanical design" />
-                <img src="assets/placeholders/brobot-image-2.svg" alt="Placeholder image for Brobot electronics" />
-                <img src="assets/placeholders/brobot-image-3.svg" alt="Placeholder image for Brobot controller" />
+              <div class="thumb-row thumb-row-square">
+                <img src="assets/cad.png" alt="Placeholder image for Brobot mechanical design" />
+                <img src="assets/pcb_pic.png" alt="Placeholder image for Brobot electronics" />
               </div>
             </div>
 
             <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/yourusername/brobot" target="_blank" rel="noreferrer">View GitHub</a>
-              <button class="button button-secondary more-info-btn" data-modal="modal-brobot">More information</button>
+              <a class="button button-primary" href="https://github.com/Tylouw/Brobot" target="_blank" rel="noreferrer">
+                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+                View Code
+              </a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-head">
-              <span class="tag tag-university">University project</span>
               <h3>UR5e Cable Grasping Pipeline</h3>
               <p>
-                Built the perception-to-action pipeline for cable detection and robot grasping,
-                integrating TrackDLO, ROS, UR-RTDE, Intel RealSense, and UR5e control.
+                Developed the pipeline from cable detection to robot execution for a system that grasps a cable lying on a table.
+                My work focused especially on connecting perception and robot control, including TrackDLO, ROS communication,
+                UR-RTDE, and motion execution on the real robot. The project combined robotics engineering with business development,
+                including external company contact and an investor-style startup pitch.
               </p>
+              <span class="tag tag-university">University project</span>
               <ul class="tech-list">
                 <li>UR5e</li>
                 <li>ROS</li>
@@ -100,94 +135,127 @@
                 <li>RealSense</li>
                 <li>Computer vision</li>
                 <li>Startup pitch</li>
+                <li>Linux/Ubuntu</li>
               </ul>
             </div>
 
             <div class="media-block">
               <div class="video-placeholder">
-                <img src="assets/placeholders/cable-video.svg" alt="Placeholder preview for cable grasping demo video" />
-                <span class="play-badge">Video placeholder</span>
+                <iframe
+                  class="project-video"
+                  data-youtube="https://youtu.be/UZ8uLhrBVfg"
+                  title="Cable grasping project video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <div class="thumb-row">
-                <img src="assets/placeholders/cable-image-1.svg" alt="Placeholder image for cable grasping pipeline" />
-                <img src="assets/placeholders/cable-image-2.svg" alt="Placeholder image for UR5e setup" />
-                <img src="assets/placeholders/cable-image-3.svg" alt="Placeholder image for investor pitch slides" />
+              <div class="thumb-row thumb-row-square">
+                <img src="assets/charuco_tracked.png" alt="Placeholder image for cable grasping pipeline" />
+                <img src="assets/gripper_closed.png" alt="Placeholder image for UR5e setup" />
+                <!-- <img src="assets/placeholders/cable-image-3.svg" alt="Placeholder image for investor pitch slides" /> -->
               </div>
             </div>
 
             <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/yourusername/ur5e-cable-grasping" target="_blank" rel="noreferrer">View GitHub</a>
-              <button class="button button-secondary more-info-btn" data-modal="modal-cable">More information</button>
+              <a class="button button-primary" href="https://github.com/Tylouw/EiT2025" target="_blank" rel="noreferrer">
+                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+                View Code
+              </a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-head">
-              <span class="tag tag-university">University project</span>
               <h3>Whiteboard Drawing Robot</h3>
               <p>
-                Developed a whiteboard drawing setup using a UR robot, ROS 2, and OptiTrack,
+                Developed a whiteboard drawing system using a UR robot, ROS 2, and OptiTrack,
                 with custom calibration and robot integration for accurate drawing tasks.
+                Self derived the hand-eye calibration to find transformation from endeffector to marker and
+                robot base to Optitrack world origin using Ax=b.
+                Due to continuous optical tracking, the system is able to adapt to changing whiteboard and
+                pencil holder position during drawing process.
               </p>
+              <span class="tag tag-university">University project</span>
               <ul class="tech-list">
+                <li>UR5e</li>
                 <li>ROS 2</li>
-                <li>UR robot</li>
+                <li>MoveIt</li>
                 <li>OptiTrack</li>
-                <li>Calibration</li>
+                <li>Hand-eye Calibration</li>
                 <li>Python</li>
+                <li>Linux/Ubuntu</li>
               </ul>
             </div>
 
             <div class="media-block">
               <div class="video-placeholder">
-                <img src="assets/placeholders/whiteboard-video.svg" alt="Placeholder preview for whiteboard robot video" />
-                <span class="play-badge">Video placeholder</span>
+                <iframe
+                  class="project-video"
+                  data-youtube="https://youtu.be/YwW8a0XS5Mk"
+                  title="Whiteboard robot project video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <div class="thumb-row">
-                <img src="assets/placeholders/whiteboard-image-1.svg" alt="Placeholder image for whiteboard setup" />
-                <img src="assets/placeholders/whiteboard-image-2.svg" alt="Placeholder image for calibration" />
-                <img src="assets/placeholders/whiteboard-image-3.svg" alt="Placeholder image for robot drawing result" />
+              <div class="thumb-row thumb-row-square">
+                <img src="assets/whiteboard_2.png" alt="Placeholder image for whiteboard setup" />
+                <img src="assets/whiteboard_1.png" alt="Placeholder image for calibration" />
+                <!-- <img src="assets/placeholders/whiteboard-image-3.svg" alt="Placeholder image for robot drawing result" /> -->
               </div>
             </div>
 
             <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/yourusername/whiteboard-robot" target="_blank" rel="noreferrer">View GitHub</a>
-              <button class="button button-secondary more-info-btn" data-modal="modal-whiteboard">More information</button>
+              <a class="button button-primary" href="https://github.com/Tylouw/robotik_projekt_malroboter/" target="_blank" rel="noreferrer">
+                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+                View Code
+              </a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-head">
-              <span class="tag tag-university">University project</span>
-              <h3>Robotic Insertion Thesis Setup</h3>
+              <h3>Robotic Insertion Master Thesis Setup</h3>
               <p>
-                Investigating success and failure classification for robotic insertion tasks using
-                real force/torque time-series from a UR5e setup.
+                Developed and operated a robotic insertion test setup using a UR5e.
+                Designed experiments, recorded real force/torque signals during insertion attempts,
+                managed data pipelines, and evaluated system behaviour under varying conditions.
+                Beyond the machine-learning component, this work required practical robot programming,
+                handling real contact interactions, and creating repeatable experiments on hardware.
               </p>
+              <span class="tag tag-university">University project</span>
               <ul class="tech-list">
                 <li>UR5e</li>
                 <li>Force/torque data</li>
                 <li>PatchTST</li>
                 <li>Experiment design</li>
                 <li>Python</li>
+                <li>Linux/Ubuntu</li>
               </ul>
             </div>
 
             <div class="media-block">
               <div class="video-placeholder">
-                <img src="assets/placeholders/thesis-video.svg" alt="Placeholder preview for thesis setup video" />
-                <span class="play-badge">Video placeholder</span>
+                <iframe
+                  class="project-video"
+                  data-youtube="https://youtu.be/snzEq8wtjyI"
+                  title="Thesis setup project video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
-              <div class="thumb-row">
-                <img src="assets/placeholders/thesis-image-1.svg" alt="Placeholder image for insertion setup" />
-                <img src="assets/placeholders/thesis-image-2.svg" alt="Placeholder image for force plots" />
-                <img src="assets/placeholders/thesis-image-3.svg" alt="Placeholder image for taskboard" />
+              <div class="thumb-row thumb-row-wide">
+                <img src="assets/master_thesis_plot.png" alt="Placeholder image for insertion setup" />
               </div>
             </div>
 
             <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/yourusername/insertion-thesis" target="_blank" rel="noreferrer">View GitHub</a>
-              <button class="button button-secondary more-info-btn" data-modal="modal-thesis">More information</button>
+              <a class="button button-primary" href="https://github.com/yourusername/insertion-thesis" target="_blank" rel="noreferrer">
+                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+                View Code
+              </a>
             </div>
           </article>
         </div>
@@ -200,19 +268,20 @@
           <p class="section-kicker">About</p>
           <h2>What I enjoy building</h2>
           <p>
-            My strongest projects sit at the boundary between software and hardware: robot control,
+            My strongest projects sit at the boundary between software and hardware: robot control, robot hardware,
             integration, calibration, perception pipelines, and prototypes that must work reliably
             in the physical world.
           </p>
         </div>
         <div class="about-panel">
-          <h3>Core interests</h3>
+          <h3>Other Projects</h3>
           <ul>
-            <li>Industrial robotics and cobots</li>
-            <li>Motion control and calibration</li>
-            <li>Perception-to-action pipelines</li>
-            <li>Mechanical design and prototyping</li>
-            <li>Full-stack robotics debugging</li>
+            <li>SLAM with stereo vision on KITTI dataset. Uni Project</li>
+            <li>Rubiks cube solving robot with automated scanning and solving using Kociemba's algorihm.
+              Private project
+            </li>
+            <li>Delta Robot Simulation written in Java. Private Project</li>
+            <li>Building and designing gym exercise machine in mechanics course. Uni Project</li>
           </ul>
         </div>
       </div>
@@ -222,73 +291,23 @@
       <div class="container contact-box">
         <p class="section-kicker">Contact</p>
         <h2>Interested in working together?</h2>
-        <p>
-          Replace the placeholder links below with your real profiles before publishing.
-        </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="mailto:your.email@example.com">Email me</a>
-          <a class="button button-secondary" href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub profile</a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button button-primary" href="mailto:tilo.woebber@gmx.de">
+            <img class="btn-icon" src="assets/icons/email.png" alt="Email" />
+            Email me
+          </a>
+          <a class="button button-secondary" href="https://github.com/Tylouw" target="_blank" rel="noreferrer">
+            <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+            GitHub profile
+          </a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/tilo-w%C3%B6bber-9a2b59356/" target="_blank" rel="noreferrer">
+            <img class="btn-icon" src="assets/icons/linkedin.png" alt="LinkedIn" />
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>
   </main>
-
-  <div class="modal-overlay" id="modal-brobot" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-brobot-title">
-      <button class="modal-close" aria-label="Close modal">×</button>
-      <span class="tag tag-private">Private project</span>
-      <h3 id="modal-brobot-title">Brobot — more information</h3>
-      <p>
-        I designed the arm mechanics in CAD, 3D-printed the structural parts, built the electronics,
-        and implemented the controller in C++ on ESP32. The control stack includes forward and inverse
-        kinematics, Jacobian-based Cartesian jogging, coupled-axis handling, and emergency-stop logic.
-      </p>
-      <p>
-        Replace this text with a short paragraph about design tradeoffs, what worked, what failed,
-        and what you learned.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-cable" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-cable-title">
-      <button class="modal-close" aria-label="Close modal">×</button>
-      <span class="tag tag-university">University project</span>
-      <h3 id="modal-cable-title">UR5e Cable Grasping Pipeline — more information</h3>
-      <p>
-        My main contribution was the end-to-end technical pipeline from cable detection to robot motion:
-        TrackDLO output, ROS communication, UR-RTDE control, and the grasp execution logic on the UR5e.
-      </p>
-      <p>
-        This project also included market and startup work, including company outreach and an investor-style pitch.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-whiteboard" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-whiteboard-title">
-      <button class="modal-close" aria-label="Close modal">×</button>
-      <span class="tag tag-university">University project</span>
-      <h3 id="modal-whiteboard-title">Whiteboard Drawing Robot — more information</h3>
-      <p>
-        Focus this section on your contribution: hand-eye calibration, robot trajectory generation,
-        ROS 2 integration, OptiTrack setup, and the debugging required to get repeatable drawing results.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-thesis" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-thesis-title">
-      <button class="modal-close" aria-label="Close modal">×</button>
-      <span class="tag tag-university">University project</span>
-      <h3 id="modal-thesis-title">Robotic Insertion Thesis Setup — more information</h3>
-      <p>
-        Expand this section with the exact robotic setup, sensing pipeline, dataset construction,
-        and the main modeling approach you used for classification.
-      </p>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
