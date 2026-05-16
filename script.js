@@ -1,6 +1,58 @@
 const openButtons = document.querySelectorAll('.more-info-btn');
 const overlays = document.querySelectorAll('.modal-overlay');
 const projectVideos = document.querySelectorAll('.project-video');
+const typingText = document.querySelector('.typing-text');
+
+const typingPhrases = [
+  'building Robots',
+  'programming in Java, C++, Python',
+  'smooth and precise robot motion',
+  'playing Drums',
+  'designing in 3D CAD',
+  'building electronics',
+  'turning ideas into prototypes',
+  'playing Ultimate Frisbee',
+  'working on real hardware',
+];
+
+function startTypingAnimation() {
+  if (!typingText) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    typingText.textContent = typingPhrases[0];
+    return;
+  }
+
+  let phraseIndex = 0;
+  let letterIndex = typingPhrases[phraseIndex].length;
+  let deleting = true;
+
+  function typeNextFrame() {
+    const phrase = typingPhrases[phraseIndex];
+    typingText.textContent = phrase.slice(0, letterIndex);
+
+    if (!deleting && letterIndex === phrase.length) {
+      deleting = true;
+      window.setTimeout(typeNextFrame, 1000);
+      return;
+    }
+
+    if (deleting && letterIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+      window.setTimeout(typeNextFrame, 280);
+      return;
+    }
+
+    letterIndex += deleting ? -1 : 1;
+    window.setTimeout(typeNextFrame, deleting ? 30 : 60);
+  }
+
+  window.setTimeout(typeNextFrame, 900);
+}
+
+startTypingAnimation();
 
 function toYouTubeEmbedUrl(url) {
   if (!url) return '';

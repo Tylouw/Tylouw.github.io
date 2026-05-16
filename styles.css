@@ -183,6 +183,7 @@ button {
 
 /* Opening animation for the hero content when the page loads */
 .hero-content,
+.hero-portrait,
 .hero-aside,
 .hero-scroll {
   animation: heroFadeUp 800ms ease forwards;
@@ -190,12 +191,39 @@ button {
 }
 
 .hero-content { animation-delay: 90ms; }
+.hero-portrait { animation-delay: 180ms; }
 .hero-aside { animation-delay: 220ms; }
 .hero-scroll { animation-delay: 420ms; }
 
 /* Prevents the hero text block from getting too wide */
 .hero-content {
   max-width: 52rem;
+}
+
+.hero-portrait {
+  position: relative;
+  align-self: center;
+  justify-self: end;
+  width: min(31vw, 360px);
+  margin: 0 1rem 0 0;
+  padding: 0.85rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(17, 24, 38, 0.82), rgba(8, 13, 22, 0.64));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: min(62svh, 560px);
+  object-fit: cover;
+  object-position: 50% 24%;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* Short supporting line above the main headline */
@@ -205,7 +233,7 @@ button {
   color: rgba(231, 237, 247, 0.9);
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 /* Small uppercase section labels used throughout the site */
@@ -214,7 +242,7 @@ button {
   margin: 0 0 0 0;
   color: var(--accent-2);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
   font-size: 0.78rem;
 }
@@ -222,10 +250,10 @@ button {
 /* Main landing-page headline */
 .hero h1 {
   margin: 0 0 0 20px;
-  max-width: 9.6ch;
-  font-size: clamp(3.1rem, 6.6vw, 5.8rem);
+  max-width: 10.0ch;
+  font-size: 4.7rem;
   line-height: 0.96;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   text-wrap: balance;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
 }
@@ -236,6 +264,26 @@ button {
   max-width: 36rem;
   color: rgba(231, 237, 247, 0.82);
   font-size: 1rem;
+}
+
+.hero-typing {
+  min-height: 1.8em;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.typing-text {
+  color: var(--accent-2);
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 0.09em;
+  height: 1.05em;
+  margin-left: 0.12em;
+  background: var(--accent-2);
+  transform: translateY(0.13em);
+  animation: cursorBlink 900ms steps(2, start) infinite;
 }
 
 /* Right-side glass panel with highlighted project themes */
@@ -376,11 +424,41 @@ button {
   margin-bottom: 2rem;
 }
 
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-bottom: 2.4rem;
+}
+
+.focus-panel {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(17, 24, 38, 0.96), rgba(12, 18, 28, 0.96));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.focus-panel h3 {
+  margin: 0 0 0.8rem;
+}
+
+.focus-panel ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.focus-panel li + li {
+  margin-top: 0.55rem;
+}
+
 .section-heading h2,
 .about-section h2,
 .contact-section h2 {
   margin: 0 0 0.65rem;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.65rem;
   line-height: 1.05;
 }
 
@@ -410,9 +488,31 @@ button {
   box-shadow: var(--shadow);
 }
 
+.project-card-compact {
+  grid-template-columns: 1fr;
+}
+
+.project-card-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.project-card-secondary {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.15rem;
+}
+
 /* Keeps the desktop button row from overlapping the project text */
 .project-head {
   padding-bottom: 4.75rem;
+}
+
+.project-card-compact .project-head,
+.project-card-secondary .project-head,
+.project-card-no-actions .project-head {
+  padding-bottom: 0;
 }
 
 /* Project title */
@@ -420,6 +520,10 @@ button {
   margin: 0.2rem 0 0.5rem;
   font-size: 1.65rem;
   line-height: 1.15;
+}
+
+.project-card-secondary .project-head h3 {
+  font-size: 1.35rem;
 }
 
 /* Project description text */
@@ -437,7 +541,7 @@ button {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 /* place tags inline inside the project head, between the paragraph and tech list */
@@ -551,10 +655,45 @@ button {
   font-size: 0.9rem;
 }
 
+.project-card-secondary .tech-list {
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.project-card-secondary .tech-list li {
+  padding: 0.34rem 0.6rem;
+  font-size: 0.82rem;
+}
+
 /* Wraps the project preview area and thumbnail row */
 .media-block {
   display: grid;
   gap: 0.85rem;
+}
+
+.vslam-media img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vslam-wide {
+  aspect-ratio: 3 / 1;
+}
+
+.vslam-media-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.65rem;
+}
+
+.vslam-square {
+  aspect-ratio: 1 / 1;
+}
+
+.vslam-animation {
+  aspect-ratio: 2 / 1;
 }
 
 /* Large preview area for a project video/image */
@@ -594,6 +733,10 @@ button {
 
 .thumb-row.thumb-row-wide img {
   aspect-ratio: 16 / 9;
+}
+
+.thumb-row.thumb-row-2x1 img {
+  aspect-ratio: 2 / 1;
 }
 
 /* Styling for each thumbnail image */
@@ -642,6 +785,39 @@ button {
 /* Inner spacing of the Contact box */
 .contact-box {
   padding: 1.6rem;
+}
+
+.contact-box .hero-actions {
+  margin-left: 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--accent);
 }
 
 /* Full-screen dark overlay behind the modal dialog */
@@ -701,7 +877,9 @@ button {
 /* Tablet layout changes: stacked hero/project/about layouts and adjusted spacing */
 @media (max-width: 900px) {
   .project-card,
-  .about-grid {
+  .about-grid,
+  .project-card-pair,
+  .focus-grid {
     grid-template-columns: 1fr;
   }
 
@@ -727,8 +905,19 @@ button {
   }
 
   .hero h1 {
-    max-width: 10.5ch;
-    font-size: clamp(2.9rem, 9vw, 4.8rem);
+    max-width: 13ch;
+    font-size: 3.6rem;
+  }
+
+  .hero-portrait {
+    justify-self: center;
+    width: min(54vw, 300px);
+    margin: -0.75rem 0 -1rem;
+    padding: 0.7rem;
+  }
+
+  .hero-portrait img {
+    max-height: 40svh;
   }
 
   .hero-aside {
@@ -745,15 +934,20 @@ button {
   }
 
   .nav {
-    gap: 0.8rem;
-    font-size: 0.95rem;
+    gap: 0.55rem;
+    font-size: 0.88rem;
   }
 
   .project-card,
   .contact-box,
+  .focus-panel,
   .about-panel,
   .modal-card {
     padding: 1rem;
+  }
+
+  .vslam-media-row {
+    grid-template-columns: 1fr;
   }
 
   .hero-grid {
@@ -763,8 +957,26 @@ button {
   }
 
   .hero h1 {
-    max-width: 9.5ch;
-    font-size: clamp(2.7rem, 12vw, 4.1rem);
+    max-width: 13ch;
+    font-size: 2.45rem;
+  }
+
+  .hero-portrait {
+    width: min(72vw, 250px);
+    margin: -0.5rem auto -0.75rem;
+    padding: 0.55rem;
+    border-radius: 20px;
+  }
+
+  .hero-portrait img {
+    max-height: 32svh;
+    border-radius: 15px;
+  }
+
+  .section-heading h2,
+  .about-section h2,
+  .contact-section h2 {
+    font-size: 2rem;
   }
 
   .hero-copy,
@@ -802,6 +1014,11 @@ button {
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
   }
+
+  .footer-wrap {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 /* Fade-and-lift animation used when hero elements appear */
@@ -823,5 +1040,20 @@ button {
   }
   50% {
     transform: translateY(8px);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 45% {
+    opacity: 1;
+  }
+  46%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none;
   }
 }

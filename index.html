@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Robotics portfolio website for Tilo Wöbber" />
+  <meta name="description" content="Robotics portfolio of Tilo Wöbber, focused on manipulation, perception, control, teleoperation and real robot hardware systems." />
   <title>Tilo Wöbber | Robotics Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,9 @@
         <a class="icon-link" href="https://www.linkedin.com/in/tilo-w%C3%B6bber-9a2b59356/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
           <img src="assets/icons/linkedin.png" alt="LinkedIn" />
         </a>
+        <a class="icon-link" href="mailto:tilo.woebber@gmx.de" aria-label="Email Tilo Wöbber">
+          <img src="assets/icons/email.png" alt="Email" />
+        </a>
       </nav>
     </div>
   </header>
@@ -36,27 +39,18 @@
       <div class="hero-overlay"></div>
       <div class="hero-grid container">
         <div class="hero-content">
-          <!-- <p class="eyebrow">Robotics • Controls • Integration • Prototyping</p> -->
-          <!-- <p class="hero-lead">Fast cuts. Real hardware. End-to-end ownership.</p> -->
-          <h1>Hi, I'm Tilo! Industrial Robots are my passion</h1>
-          <p class="hero-copy">
-            I am Tilo Wöbber, a robotics engineer finishing my M.Sc. in Robot Systems
-            (Advanced Robotics Technology) at SDU Odense, Denmark. I build across industrial
-            robot integration, custom robot hardware, motion control, perception, and full-stack prototyping.
+          <h1>Hi, I'm Tilo! Passionate Robotics Engineer</h1>
+          <p class="hero-copy hero-typing" aria-label="I enjoy building robots">
+            <span>I enjoy </span><span class="typing-text" aria-hidden="true">building Robots</span><span class="typing-cursor" aria-hidden="true"></span>
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">See projects</a>
             <a class="button button-secondary" href="#contact">Get in touch</a>
           </div>
         </div>
-        <!-- <div class="hero-aside" aria-label="Project highlights">
-          <div class="hero-chip">UR5e integration</div>
-          <div class="hero-chip">Custom 6-DoF arm</div>
-          <div class="hero-chip">ROS and ROS 2</div>
-          <div class="hero-chip">Vision-to-grasp pipelines</div>
-          <div class="hero-chip">Calibration and control</div>
-          <div class="hero-chip">Rapid prototyping</div>
-        </div> -->
+        <figure class="hero-portrait">
+          <img src="assets/tilo.png" alt="Portrait of Tilo Wöbber" />
+        </figure>
       </div>
       <a class="hero-scroll" href="#projects" aria-label="Scroll to projects">
         <img class="hero-scroll-icon" src="assets/icons/icons8-scroll-100.png" alt="" aria-hidden="true" />
@@ -65,29 +59,67 @@
 
     <section id="projects" class="projects-section">
       <div class="container">
+        <div class="focus-grid">
+          <div class="section-heading">
+            <h2>Building systems beyond ideal simulation conditions</h2>
+            <p>
+              My work is mainly about making robotic systems work on real hardware. I have worked on
+              teleoperation, robot perception, manipulation, force/torque based experiments, control
+              pipelines and custom robot hardware.
+            </p>
+          </div>
+          <div class="focus-panel">
+            <h3>Current focus</h3>
+            <ul>
+              <li>Finishing my Master thesis on robotic insertion classification with UR5e force/torque data. Submission is on 1 June 2026 and defense is on 16 June 2026.</li>
+              <li>Studying M.Sc. in Robot Systems (Advanced Robotics Technology) at SDU Odense, Denmark.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="section-heading">
           <h2>My robotics projects</h2>
         </div>
 
         <div class="projects-grid">
+          <article class="project-card project-card-compact">
+            <div class="project-head">
+              <h3>Dexter Surgical Robot Simulator and Teleoperation Study</h3>
+              <p>
+                For my bachelor thesis at Fraunhofer IMTE, I developed and evaluated a training simulator
+                for the Dexter surgical robot system. The study compared unconventional input devices such
+                as a game controller and a 3D space mouse and included a test-subject study where participants
+                first used the simulator and then worked with the real Dexter robot system in an operating-room
+                scenario.
+              </p>
+              <span class="tag tag-university">Bachelor Thesis</span>
+              <ul class="tech-list">
+                <li>Teleoperation</li>
+                <li>Robot-user interaction</li>
+                <li>Simulation</li>
+                <li>Testing</li>
+                <li>Real robot hardware</li>
+              </ul>
+            </div>
+          </article>
+
           <article class="project-card">
             <div class="project-head">
-              <h3>Brobot — Custom 6-DoF Robot Arm</h3>
+              <h3>Brobot - Custom 6-DoF Robot Arm</h3>
               <p>
-                Designed and built a complete 6-DoF robot arm from scratch.
-                Developed the mechanical structure in CAD, produced parts by
-                3D printing, designed the electronics architecture,
-                and implemented a custom C++ controller on ESP32.
-                Implemented forward/inverse kinematics, coordinated axis motion,
-                Jacobian-based Cartesian jogging, and safety logic.
+                Designed and built a 6-DoF robot arm from mechanics to control software.
+                I developed the CAD model, produced 3D-printed mechanical parts, integrated the electronics,
+                and implemented the ESP32/C++ controller. The software includes forward and inverse kinematics,
+                coordinated axis motion, Jacobian-based Cartesian jogging, and safety logic with e-stop
+                considerations.
               </p>
               <span class="tag tag-private">Private project</span>
               <ul class="tech-list">
+                <li>Hardware integration</li>
+                <li>Control</li>
+                <li>Embedded control</li>
                 <li>C++</li>
                 <li>ESP32</li>
-                <li>Forward/Inverse Kinematics</li>
-                <li>Stepper Control</li>
-                <li>Jacobian Control</li>
                 <li>CAD</li>
                 <li>3D Printing</li>
               </ul>
@@ -105,8 +137,8 @@
                 ></iframe>
               </div>
               <div class="thumb-row thumb-row-square">
-                <img src="assets/cad.png" alt="Placeholder image for Brobot mechanical design" />
-                <img src="assets/pcb_pic.png" alt="Placeholder image for Brobot electronics" />
+                <img src="assets/cad.png" alt="Brobot mechanical CAD model" />
+                <img src="assets/pcb_pic.png" alt="Brobot electronics integration" />
               </div>
             </div>
 
@@ -122,20 +154,20 @@
             <div class="project-head">
               <h3>UR5e Cable Grasping Pipeline</h3>
               <p>
-                Developed the pipeline from cable detection to robot execution for a system that grasps a cable lying on a table.
-                My work focused especially on connecting perception and robot control, including TrackDLO, ROS communication,
-                UR-RTDE, and motion execution on the real robot. The project combined robotics engineering with business development,
-                including external company contact and an investor-style startup pitch.
+                Implemented the perception-to-execution pipeline for grasping a cable lying on a table with
+                a UR5e. The setup used an Intel RealSense camera for sensing, cable detection with TrackDLO,
+                ROS communication, UR-RTDE, and motion execution on the real robot. This project connects
+                perception-based manipulation with grasping of deformable objects.
               </p>
               <span class="tag tag-university">University project</span>
               <ul class="tech-list">
+                <li>Manipulation</li>
+                <li>Perception</li>
+                <li>Grasping</li>
                 <li>UR5e</li>
                 <li>ROS</li>
                 <li>UR-RTDE</li>
                 <li>RealSense</li>
-                <li>Computer vision</li>
-                <li>Startup pitch</li>
-                <li>Linux/Ubuntu</li>
               </ul>
             </div>
 
@@ -151,9 +183,8 @@
                 ></iframe>
               </div>
               <div class="thumb-row thumb-row-square">
-                <img src="assets/charuco_tracked.png" alt="Placeholder image for cable grasping pipeline" />
-                <img src="assets/gripper_closed.png" alt="Placeholder image for UR5e setup" />
-                <!-- <img src="assets/placeholders/cable-image-3.svg" alt="Placeholder image for investor pitch slides" /> -->
+                <img src="assets/charuco_tracked.png" alt="Cable grasping perception pipeline" />
+                <img src="assets/gripper_closed.png" alt="UR5e cable grasping setup" />
               </div>
             </div>
 
@@ -165,73 +196,23 @@
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-head">
-              <h3>Whiteboard Drawing Robot</h3>
-              <p>
-                Developed a whiteboard drawing system using a UR robot, ROS 2, and OptiTrack,
-                with custom calibration and robot integration for accurate drawing tasks.
-                Self derived the hand-eye calibration to find transformation from endeffector to marker and
-                robot base to Optitrack world origin using Ax=b.
-                Due to continuous optical tracking, the system is able to adapt to changing whiteboard and
-                pencil holder position during drawing process.
-              </p>
-              <span class="tag tag-university">University project</span>
-              <ul class="tech-list">
-                <li>UR5e</li>
-                <li>ROS 2</li>
-                <li>MoveIt</li>
-                <li>OptiTrack</li>
-                <li>Hand-eye Calibration</li>
-                <li>Python</li>
-                <li>Linux/Ubuntu</li>
-              </ul>
-            </div>
-
-            <div class="media-block">
-              <div class="video-placeholder">
-                <iframe
-                  class="project-video"
-                  data-youtube="https://youtu.be/YwW8a0XS5Mk"
-                  title="Whiteboard robot project video"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="thumb-row thumb-row-square">
-                <img src="assets/whiteboard_2.png" alt="Placeholder image for whiteboard setup" />
-                <img src="assets/whiteboard_1.png" alt="Placeholder image for calibration" />
-                <!-- <img src="assets/placeholders/whiteboard-image-3.svg" alt="Placeholder image for robot drawing result" /> -->
-              </div>
-            </div>
-
-            <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/Tylouw/robotik_projekt_malroboter/" target="_blank" rel="noreferrer">
-                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
-                View Code
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
+          <article class="project-card project-card-no-actions">
             <div class="project-head">
               <h3>Robotic Insertion Master Thesis Setup</h3>
               <p>
-                Developed and operated a robotic insertion test setup using a UR5e.
-                Designed experiments, recorded real force/torque signals during insertion attempts,
-                managed data pipelines, and evaluated system behaviour under varying conditions.
-                Beyond the machine-learning component, this work required practical robot programming,
-                handling real contact interactions, and creating repeatable experiments on hardware.
+                Developed and operated a repeatable robotic insertion test setup using a UR5e.
+                The work focuses on contact-rich insertion, force/torque data, experimental dataset creation,
+                and time-series classification of successful and failed insertions. It combines practical robot
+                programming, real sensor data and reproducible hardware experiments.
               </p>
-              <span class="tag tag-university">University project</span>
+              <span class="tag tag-university">Master Thesis</span>
               <ul class="tech-list">
-                <li>UR5e</li>
+                <li>Testing</li>
                 <li>Force/torque data</li>
-                <li>PatchTST</li>
+                <li>UR5e</li>
+                <li>Time-series classification</li>
                 <li>Experiment design</li>
                 <li>Python</li>
-                <li>Linux/Ubuntu</li>
               </ul>
             </div>
 
@@ -247,17 +228,160 @@
                 ></iframe>
               </div>
               <div class="thumb-row thumb-row-wide">
-                <img src="assets/master_thesis_plot.png" alt="Placeholder image for insertion setup" />
+                <img src="assets/master_thesis_plot.png" alt="Plot from robotic insertion thesis experiments" />
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <h3>Stereo Visual SLAM</h3>
+              <p>
+                Implemented a stereo visual SLAM project on the KITTI dataset, including visual odometry
+                and loop detection with a Bag of Visual Words approach. This work is relevant to robot
+                perception, localization and mapping.
+              </p>
+              <span class="tag tag-university">University project</span>
+              <ul class="tech-list">
+                <li>SLAM</li>
+                <li>Perception</li>
+                <li>Localization</li>
+                <li>Visual odometry</li>
+                <li>Python</li>
+              </ul>
+            </div>
+
+            <div class="media-block vslam-media">
+              <img class="vslam-wide" src="assets/VSLAM_1.png" alt="Stereo visual SLAM trajectory overview" />
+              <div class="vslam-media-row">
+                <img class="vslam-square" src="assets/VSLAM_3.png" alt="Stereo visual SLAM feature matching view" />
+                <img class="vslam-animation" src="assets/VSLAM_2.gif" alt="Stereo visual SLAM animation" />
               </div>
             </div>
 
             <div class="card-actions">
-              <a class="button button-primary" href="https://github.com/yourusername/insertion-thesis" target="_blank" rel="noreferrer">
+              <a class="button button-primary" href="https://github.com/Fiiila/Project_In_Advanced_Robotics" target="_blank" rel="noreferrer">
                 <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
                 View Code
               </a>
             </div>
           </article>
+
+          <article class="project-card">
+            <div class="project-head">
+              <h3>Whiteboard Drawing Robot</h3>
+              <p>
+                Developed a whiteboard drawing system using a UR robot, ROS 2, and OptiTrack,
+                with custom calibration and robot integration for accurate drawing tasks.
+                I derived the hand-eye calibration to estimate the transform from end effector to marker
+                and from robot base to OptiTrack world origin using Ax=b. Continuous optical tracking
+                lets the system adapt to changing whiteboard and pencil holder positions during drawing.
+              </p>
+              <span class="tag tag-university">University project</span>
+              <ul class="tech-list">
+                <li>Calibration</li>
+                <li>Robot integration</li>
+                <li>UR5e</li>
+                <li>ROS 2</li>
+                <li>MoveIt</li>
+                <li>OptiTrack</li>
+                <li>Python</li>
+              </ul>
+            </div>
+
+            <div class="media-block">
+              <div class="video-placeholder">
+                <iframe
+                  class="project-video"
+                  data-youtube="https://youtu.be/YwW8a0XS5Mk"
+                  title="Whiteboard robot project video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="thumb-row thumb-row-square">
+                <img src="assets/whiteboard_2.png" alt="Whiteboard robot setup" />
+                <img src="assets/whiteboard_1.png" alt="Whiteboard robot calibration" />
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a class="button button-primary" href="https://github.com/Tylouw/robotik_projekt_malroboter/" target="_blank" rel="noreferrer">
+                <img class="btn-icon" src="assets/icons/github.png" alt="GitHub" />
+                View Code
+              </a>
+            </div>
+          </article>
+
+          <div class="project-card-pair">
+            <article class="project-card project-card-secondary">
+              <div class="project-head">
+                <h3>Drone Wind Turbine Inspection</h3>
+                <p>
+                  Drone-based wind turbine inspection project with custom YOLO_V8 computer vision model to locate wind turbine blades.
+                  Based on the turbine blades position, the shown X-Y frame moves the camera infront of a wind turbine.
+                </p>
+                <span class="tag tag-university">University project</span>
+                <ul class="tech-list">
+                  <li>Perception</li>
+                  <li>Inspection</li>
+                  <li>YOLO V8</li>
+                </ul>
+              </div>
+
+              <div class="media-block">
+                <div class="thumb-row thumb-row-wide thumb-row-2x1">
+                  <img src="assets/windmill_drone_2.jpg" alt="Drone wind turbine inspection close-up image" />
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card project-card-secondary">
+              <div class="project-head">
+                <h3>Rubik's Cube Solving Robot</h3>
+                <p>
+                  Built a Fischertechnik robot that scans a rubik's cube with a webcam, solves it with the optimal Kociemba
+                  algorithm implemented in Java and executes the moves through an Arduino bridge.
+                </p>
+                <span class="tag tag-private">Private project</span>
+                <ul class="tech-list">
+                  <li>Computer vision</li>
+                  <li>Java</li>
+                  <li>Arduino</li>
+                </ul>
+              </div>
+
+              <div class="media-block">
+                <div class="video-placeholder">
+                  <iframe
+                    class="project-video"
+                    data-youtube="https://www.youtube.com/watch?v=uyWEyCfMMkQ"
+                    title="Rubik's cube solving robot project video"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="project-card project-card-compact">
+            <div class="project-head">
+              <h3>Other AI and Technical Projects</h3>
+              <p>
+                Smaller projects include a custom LLM using the GPT architecture and trained on thousands of wikipedia articles, 
+                a Delta robot simulation written in Java and a mechanics-course exercise machine design project.
+              </p>
+              <ul class="tech-list">
+                <li>Java</li>
+                <li>Mechanical design</li>
+                <li>Simulation</li>
+              </ul>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -266,22 +390,20 @@
       <div class="container about-grid">
         <div>
           <p class="section-kicker">About</p>
-          <h2>What I enjoy building</h2>
+          <h2>About me</h2>
           <p>
-            My strongest projects sit at the boundary between software and hardware: robot control, robot hardware,
-            integration, calibration, perception pipelines, and prototypes that must work reliably
-            in the physical world.
+            I am from the north of Germany and currently finishing my full-degree M.Sc. in Robot Systems at the University of Southern
+            Denmark in Odense. Before, i graduated as B.Sc. in robotics and autonomous systems at the university of Lübeck, Germany.
+            Most of my work sits between software and real hardware. I like building the
+            parts that make a robot actually work: sensor integration, control pipelines, kinematics,
+            perception and testing.
           </p>
         </div>
         <div class="about-panel">
-          <h3>Other Projects</h3>
+          <h3>How I work</h3>
           <ul>
-            <li>SLAM with stereo vision on KITTI dataset. Uni Project</li>
-            <li>Rubiks cube solving robot with automated scanning and solving using Kociemba's algorihm.
-              Private project
-            </li>
-            <li>Delta Robot Simulation written in Java. Private Project</li>
-            <li>Building and designing gym exercise machine in mechanics course. Uni Project</li>
+            <li>I prefer testing ideas on hardware early, because real sensors and contact usually expose the important problems.</li>
+            <li>I am comfortable moving between CAD, embedded control, ROS, perception code and robot execution.</li>
           </ul>
         </div>
       </div>
@@ -290,7 +412,7 @@
     <section id="contact" class="contact-section">
       <div class="container contact-box">
         <p class="section-kicker">Contact</p>
-        <h2>Interested in working together?</h2>
+        <h2>Contact</h2>
         <div class="hero-actions">
           <a class="button button-primary" href="mailto:tilo.woebber@gmx.de">
             <img class="btn-icon" src="assets/icons/email.png" alt="Email" />
@@ -308,6 +430,17 @@
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <span>Tilo Wöbber</span>
+      <div class="footer-links">
+        <a href="mailto:tilo.woebber@gmx.de">Email</a>
+        <a href="https://github.com/Tylouw" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/tilo-w%C3%B6bber-9a2b59356/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
